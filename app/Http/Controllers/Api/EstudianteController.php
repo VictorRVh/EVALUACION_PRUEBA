@@ -73,7 +73,7 @@ class EstudianteController extends Controller
 
         // Crear el nuevo estudiante con el 'codigo_estudiante' generado
         $Estudiante = Estudiante::create([
-            "codigo_estudiante" => $codigo_estudiante, // Aquí se usa el código generado
+            "codigo_estudiante" =>$request->codigo_estudiante, // Aquí se usa el código generado
             "nombre" => $request->nombre,
             "apellido_paterno" => $request->apellido_paterno,
             "apellido_materno" => $request->apellido_materno,

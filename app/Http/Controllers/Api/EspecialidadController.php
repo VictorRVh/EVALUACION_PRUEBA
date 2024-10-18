@@ -113,7 +113,7 @@ class EspecialidadController extends Controller
             $specialties = Especialidad::create($especialidadData);
 
             return response()->json([
-                'especialidad' => $especialidadData['id_unidad'],
+                'especialidad' => $specialties,
                 'status' => 201
             ], 201);
         } catch (\Exception $e) {
@@ -175,10 +175,10 @@ class EspecialidadController extends Controller
 
         $data = [
             'message' => 'Especialidad eliminada',
-            'status' => 200
+            'status' => 204
         ];
 
-        return response()->json($data, 200);
+        return response()->json($data, 204);
     }
 
     public function update(Request $request, $id)

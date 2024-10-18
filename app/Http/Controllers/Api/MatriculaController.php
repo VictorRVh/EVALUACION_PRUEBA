@@ -285,9 +285,9 @@ class MatriculaController extends Controller
 
         $data = [
             'message' => 'Matrícula eliminada',
-            'status' => 200
+            'status' => 204
         ];
 
-        return response()->json($data, 200);
+        return response()->json($data, 204);
     }
 }

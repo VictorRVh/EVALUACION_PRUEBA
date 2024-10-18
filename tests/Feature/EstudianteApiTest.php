@@ -18,6 +18,7 @@ class EstudianteApiTest extends TestCase
     {
         // Datos de ejemplo para crear un estudiante
         $data = [
+            'codigo_estudiante' => '123412',
             'nombre' => 'Victor',
             'apellido_paterno' => 'Valdez',
             'apellido_materno' => 'Huancuni',
@@ -35,6 +36,7 @@ class EstudianteApiTest extends TestCase
         $response->assertStatus(201)
             ->assertJson([
                 'Estudiante' => [
+                    'codigo_estudiante' => '123412',
                     'nombre' => 'Victor',
                     'apellido_paterno' => 'Valdez',
                     'apellido_materno' => 'Huancuni',
