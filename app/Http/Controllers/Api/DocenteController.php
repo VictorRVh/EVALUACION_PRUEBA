@@ -31,34 +31,6 @@ class DocenteController extends Controller
         return response()->json($data, 200);
     }
     //metodo GetDocenteNombreApellidos
-    public function indexName()
-    {
-        // Obtén los docentes asignados a una especialidad
-        $assignedTeachers = Docente::join('especialidad', 'docente.dni', '=', 'especialidad.docente_id')
-            ->select('docente.dni')
-            ->distinct()
-            ->pluck('dni');
-
-        // Obtén los docentes que no están asignados a ninguna especialidad
-        $teachers = Docente::select('dni', 'nombre', 'apellido_paterno', 'apellido_materno')
-            ->whereNotIn('dni', $assignedTeachers)
-            ->get();
-
-        if ($teachers->isEmpty()) {
-            $data = [
-                'message' => "No se encontraron datos",
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-
-        $data = [
-            'teachers' => $teachers,
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
-    }
 
     public function store(Request $request)
     {
@@ -214,22 +186,18 @@ class DocenteController extends Controller
         $teacher = Docente::where('dni', $dni)->first();
 
         if (!$teacher) {
-            $data = [
+            return response()->json([
                 'message' => 'Docente no encontrado',
-                'status' => 404
-            ];
-
-            return response()->json($data, 404);
+                'status' => 404,
+            ], 404);
         }
 
         $teacher->delete();
 
-        $data = [
+        return response()->json([
             'message' => 'Docente eliminado',
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
+            'status' => 200,
+        ], 200);
     }
 
     public function updateParcial(Request $request, $dni)

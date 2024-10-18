@@ -59,12 +59,6 @@ Route::delete('/unidad_didactica/{id}',[UnidadDidacticaController::class, 'destr
 
 // Indicardor Logro
 
-Route::get('/indicador_logro',[IndicadorLogroController::class,'index']);
-Route::get('/indicador_logro/{id}',[IndicadorLogroController::class, 'findOne']);
-Route::post('/indicador_logro',[IndicadorLogroController::class,'store']);
-Route::put('/indicador_logro/{id}',[IndicadorLogroController::class, 'update']);
-Route::patch('/indicador_logro/{id}',[IndicadorLogroController::class, 'updateParcial']);
-Route::delete('/indicador_logro/{id}',[IndicadorLogroController::class, 'destroy']);
 
 // MAtriculaindicador_logro
 
@@ -76,12 +70,6 @@ Route::patch('/matricula/{id}',[MatriculaController::class, 'updateParcial']);
 Route::delete('/matricula/{id}',[MatriculaController::class, 'destroy']);
 
 // EXPERIENCIA FORMATIVA
-
-Route::get('/experiencia_formativa',[ExperienciaFormativaController::class,'index']);
-Route::get('/experiencia_formativa/{id}',[ExperienciaFormativaController::class, 'findOne']);
-Route::post('/experiencia_formativa',[ExperienciaFormativaController::class,'store']);
-Route::put('/experiencia_formativa/{id}',[ExperienciaFormativaController::class, 'update']);
-Route::delete('/experiencia_formativa/{id}',[ExperienciaFormativaController::class, 'destroy']);
 
 
 // API PARA FICHA DE MATRICULA

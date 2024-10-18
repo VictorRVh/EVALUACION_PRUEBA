@@ -99,32 +99,6 @@ class EstudianteController extends Controller
 
         return response()->json($data, 201);
     }
-
-
-
-    public function findOneEstudent($dni)
-    {
-        // Busca al estudiante por su DNI en lugar de ID
-        $Estudiante = Estudiante::where('dni', $dni)->first();
-
-        // Verifica si se encontró al estudiante
-        if (!$Estudiante) {
-            $data = [
-                'message' => 'Estudiante no encontrado',
-                'status' => 404
-            ];
-            return response()->json($data, 404);
-        }
-
-        $data = [
-            'Estudiante' => $Estudiante,
-            'status' => 200
-        ];
-
-        return response()->json($data, 200);
-    }
-
-
     public function destroy($dni)
     {
         $estudiante = Estudiante::where('dni', $dni)->first();
@@ -195,7 +169,7 @@ class EstudianteController extends Controller
 
         $data = [
             'message' => 'Estudiante actualizado',
-            'estudiante' => $estudiante,
+            'Estudiante' => $estudiante,
             'status' => 200
         ];
 
